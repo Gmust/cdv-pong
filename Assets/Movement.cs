@@ -3,9 +3,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    public float speed;
-
     public Rigidbody2D rigidBody2d;
+
+    public float speed = 2;
+
+    public KeyCode UpKey;
+    public KeyCode DownKey;
 
 
     private void Start()
@@ -15,28 +18,17 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(UpKey) && transform.position.y < 4)
         {
-            rigidBody2d.velocity = Vector2.up;
+            rigidBody2d.velocity = Vector2.up * speed;
         }
-
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(DownKey) && transform.position.y > -4)
         {
-            rigidBody2d.velocity = Vector2.down;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            rigidBody2d.velocity = Vector2.left;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rigidBody2d.velocity = Vector2.right;
+            rigidBody2d.velocity = Vector2.down * speed;
         }
         else
         {
             rigidBody2d.velocity = Vector2.zero;
         }
-
-
     }
 }
