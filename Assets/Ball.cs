@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     public Vector2 lastVelocity;
     public bool isBallActive = false;
     public bool goal = false;
-
+    public Score Score;
     public void BallMovement()
     {
         rigidbody2D.velocity = Vector3.zero;
@@ -44,14 +44,17 @@ public class Ball : MonoBehaviour
         if (transform.position.x > 0)
         {
             Debug.Log("Left player scored");
+            Score.IncrementFirstUserScore();
+            Debug.Log(Score.firstUserScore);
             goal = true;
         }
         if (transform.position.x < 0)
         {
             Debug.Log("Right player scored");
+            Score.IncrementSecondUserScore();
             goal = true;
         }
-        //BallMovement();
+
     }
 
 }
