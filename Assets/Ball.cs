@@ -5,8 +5,10 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public float ballSpeed = 5f;
     public Vector2 lastVelocity;
+    public bool isBallActive = false;
+    public bool goal = false;
 
-    void ballMovement()
+    public void BallMovement()
     {
         rigidbody2D.velocity = Vector3.zero;
         rigidbody2D.isKinematic = true;
@@ -20,14 +22,15 @@ public class Ball : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        ballMovement();
     }
+
+
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            ballMovement();
+            BallMovement();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,12 +44,14 @@ public class Ball : MonoBehaviour
         if (transform.position.x > 0)
         {
             Debug.Log("Left player scored");
+            goal = true;
         }
         if (transform.position.x < 0)
         {
             Debug.Log("Right player scored");
+            goal = true;
         }
-        ballMovement();
+        //BallMovement();
     }
 
 }
