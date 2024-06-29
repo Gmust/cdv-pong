@@ -23,7 +23,7 @@ public class Level : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene("MainMenu");
         }
 
         if (ball.goal == true)
