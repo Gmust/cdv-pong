@@ -10,6 +10,7 @@ public class VolumeSettings : MonoBehaviour
     public void Start()
     {
         musicSlider.onValueChanged.AddListener(delegate { SetMusicVolume(); });
+        audioMixer.SetFloat("music", 10);
         SetMusicVolume();
     }
 
