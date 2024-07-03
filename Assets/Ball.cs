@@ -8,6 +8,9 @@ public class Ball : MonoBehaviour
     public bool isBallActive = false;
     public bool goal = false;
     public Score Score;
+    public Movement firstPlayerBoard;
+    public Movement secondPlayerBoard;
+
     public void BallMovement()
     {
         rigidbody2D.velocity = Vector3.zero;
@@ -31,12 +34,16 @@ public class Ball : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             BallMovement();
+            firstPlayerBoard.defaultSpeed = 2;
+            secondPlayerBoard.defaultSpeed = 2;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rigidbody2D.velocity = Vector2.Reflect(lastVelocity, collision.contacts[0].normal);
-        lastVelocity = rigidbody2D.velocity;
+        lastVelocity = rigidbody2D.velocity * 1.1f;
+        firstPlayerBoard.speed *= 1.1f;
+        secondPlayerBoard.speed *= 1.1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody2d: {fileID: 0}
   speed: 2
+  defaultSpeed: 2
   UpKey: 119
   DownKey: 115
 --- !u!212 &149750314
@@ -644,6 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody2d: {fileID: 0}
   speed: 2
+  defaultSpeed: 2
   UpKey: 273
   DownKey: 274
 --- !u!212 &625346577
@@ -1741,6 +1743,8 @@ MonoBehaviour:
   isBallActive: 0
   goal: 0
   Score: {fileID: 1077932507}
+  firstPlayerBoard: {fileID: 149750313}
+  secondPlayerBoard: {fileID: 625346576}
 --- !u!50 &1477438618
 Rigidbody2D:
   serializedVersion: 4
