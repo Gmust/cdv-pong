@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     public KeyCode DownKey;
 
 
-    private void Start()
+    private void Awake()
     {
         defaultSpeed = speed;
         rigidBody2d = GetComponent<Rigidbody2D>();
